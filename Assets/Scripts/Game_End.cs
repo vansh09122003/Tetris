@@ -12,9 +12,11 @@ public class Game_End : MonoBehaviour
 
     public GameObject[] anim;
     public int scenef=0;
+    public GameObject game_end;
 
     public void Start()
     {
+        game_end.SetActive(true);
         for (int i = 0; i < 16; i++)
         {
             anim[i].SetActive(true);
@@ -25,15 +27,4 @@ public class Game_End : MonoBehaviour
         yield return new WaitForSeconds(2.417f);
         SceneManager.LoadScene("Level_Selector");
     }
-
-    //public void FixedUpdate(){
-    //    if(scenef==108){
-    //        SceneManager.LoadScene("Level_Selector");
-    //        scenef=0;
-    //        this.enabled=false;
-    //    }
-    //    else{
-    //        scenef+=1;
-    //    }
-    //}
 }

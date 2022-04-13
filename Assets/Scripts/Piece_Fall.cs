@@ -34,6 +34,7 @@ public class Piece_Fall : MonoBehaviour
     public int sp=0;
 
     public GameObject background;
+    
 
     void Start()
     {
@@ -108,7 +109,7 @@ public class Piece_Fall : MonoBehaviour
     public void add_to_board()
     {
         int pos_y=0;
-
+        background.GetComponent<Line_Clear>().add_board();
         foreach (Transform children in transform)
         {
             int roundX = Mathf.RoundToInt(children.transform.position.x);
@@ -256,21 +257,25 @@ public class Piece_Fall : MonoBehaviour
             {
                 PlayerPrefs.SetString("Singles", (System.Convert.ToInt32(PlayerPrefs.GetString("Singles")) + 1).ToString());
                 curr_count.text = (System.Convert.ToInt32(curr_count.text) + 100).ToString();
+                background.GetComponent<Line_Clear>().lin();
             }
             else if (line == 2)
             {
                 PlayerPrefs.SetString("Doubles", (System.Convert.ToInt32(PlayerPrefs.GetString("Doubles")) + 1).ToString());
                 curr_count.text = (System.Convert.ToInt32(curr_count.text) + 225).ToString();
+                background.GetComponent<Line_Clear>().lin();
             }
             else if (line == 3)
             {
                 PlayerPrefs.SetString("Triples", (System.Convert.ToInt32(PlayerPrefs.GetString("Triples")) + 1).ToString());
                 curr_count.text = (System.Convert.ToInt32(curr_count.text) + 400).ToString();
+                background.GetComponent<Line_Clear>().lin();
             }
             else if (line == 4)
             {
                 PlayerPrefs.SetString("Tetrises", (System.Convert.ToInt32(PlayerPrefs.GetString("Tetrises")) + 1).ToString());
                 curr_count.text = (System.Convert.ToInt32(curr_count.text) + 1200).ToString();
+                background.GetComponent<Line_Clear>().tet();
             }
         }
         else
@@ -279,21 +284,25 @@ public class Piece_Fall : MonoBehaviour
             {
                 PlayerPrefs.SetString("Singles", (System.Convert.ToInt32(PlayerPrefs.GetString("Singles")) + 1).ToString());
                 curr_count.text = (System.Convert.ToInt32(curr_count.text) + (System.Convert.ToInt32(level_count.text) * base_1)).ToString();
+                background.GetComponent<Line_Clear>().lin();
             }
             else if (line == 2)
             {
                 PlayerPrefs.SetString("Doubles", (System.Convert.ToInt32(PlayerPrefs.GetString("Doubles")) + 1).ToString());
                 curr_count.text = (System.Convert.ToInt32(curr_count.text) + (System.Convert.ToInt32(level_count.text) * base_2)).ToString();
+                background.GetComponent<Line_Clear>().lin();
             }
             else if (line == 3)
             {
                 PlayerPrefs.SetString("Triples", (System.Convert.ToInt32(PlayerPrefs.GetString("Triples")) + 1).ToString());
                 curr_count.text = (System.Convert.ToInt32(curr_count.text) + (System.Convert.ToInt32(level_count.text) * base_3)).ToString();
+                background.GetComponent<Line_Clear>().lin();
             }
             else if (line == 4)
             {
                 PlayerPrefs.SetString("Tetrises", (System.Convert.ToInt32(PlayerPrefs.GetString("Tetrises")) + 1).ToString());
                 curr_count.text = (System.Convert.ToInt32(curr_count.text) + (System.Convert.ToInt32(level_count.text) * base_4)).ToString();
+                background.GetComponent<Line_Clear>().tet();
             }
         }
 
